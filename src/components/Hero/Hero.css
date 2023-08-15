@@ -1,0 +1,13 @@
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-black);
+  height: 270px;
+  text-align: center;
+  gap: 30px;
+}
+.headphone_img {
+  width: 212px;
+  height: 212px;
+}
