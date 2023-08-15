@@ -10,7 +10,6 @@ const Controls = ({ data }) => {
   const swiper = useSwiper();
 
   useEffect(() => {
-    console.log(swiper, "swiper");
     swiper.slideTo(0, 10);
   }, [data]);
 };

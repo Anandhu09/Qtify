@@ -5,23 +5,25 @@ import "./CarouselLeftNavigation.css";
 
 const CarouselLeftNavigation = () => {
   const swiper = useSwiper();
-  const [isBegining, setIsBegining] = useState(swiper.isBegining);
+  // console.log(swiper)
+  const [isBegin, setIsBegining] = useState(swiper.isBeginning);
 
   useEffect(() => {
     swiper.on("slideChange", function () {
-      setIsBegining(swiper.isBegining);
+      setIsBegining(swiper.isBeginning);
+
     });
   }, []);
   return (
     <div className="leftNavigation">
-      {!isBegining && (
+      {!isBegin && (
         <LeftArrow
           onClick={() => {
             swiper.slidePrev();
+            setIsBegining(swiper.isBeginning)
           }}
         />
       )}
-      <div></div>
     </div>
   );
 };
