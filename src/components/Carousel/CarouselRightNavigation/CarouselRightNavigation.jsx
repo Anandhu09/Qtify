@@ -10,7 +10,7 @@ const CarouselRightNavigation = () => {
     swiper.on("slideChange", () => {
       setIsEnd(swiper.isEnd);
     });
-  }, []);
+  }, [isEnd]);
   return (
     <div className="rightNavigation">
       {!isEnd && (

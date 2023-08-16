@@ -13,7 +13,7 @@ const CarouselLeftNavigation = () => {
       setIsBegining(swiper.isBeginning);
 
     });
-  }, []);
+  }, [isBegin]);
   return (
     <div className="leftNavigation">
       {!isBegin && (
