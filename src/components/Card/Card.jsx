@@ -25,26 +25,22 @@ const Card = ({ data, type }) => {
           </Tooltip>
         );
       }
-      case "songs": {
-        const { image, follows, title, slug, songs } = data;
+      case "song": {
+        const { image, likes, title } = data;
         return (
-          <Tooltip title={`${songs.length} songs`} placement="top" arrow>
-            <div className="card_wrapper">
-              <div className="card">
-                <img src={image} alt="album" />
-                <div className="banner">
-                  <Chip
-                    label={`${follows} Follows`}
-                    size="small"
-                    className="chip"
-                  />
+          <div className="card_wrapper">
+            <div className="card">
+              <img src={image} alt="song" loading="lazy" />
+              <div className="banner">
+                <div className="pill">
+                  <p>{likes} Likes </p>
                 </div>
               </div>
-              <div className="titleWrapper">
-                <p>{title}</p>
-              </div>
             </div>
-          </Tooltip>
+            <div className="titleWrapper">
+              <p>{title}</p>
+            </div>
+          </div>
         );
       }
       default:

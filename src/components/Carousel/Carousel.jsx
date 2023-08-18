@@ -8,15 +8,14 @@ import "swiper/css";
 
 const Controls = ({ data }) => {
   const swiper = useSwiper();
-
   useEffect(() => {
-    swiper.slideTo(0, 10);
+    swiper.slideTo(0,null);
   }, [data]);
 };
 
 const Carousel = ({ data, component }) => {
   return (
-    <div className="carousel_wrapper">
+    <div className="Carousel_wrapper">
       <Swiper
         style={{ padding: "0px 20px" }}
         initialSlide={0}
@@ -30,7 +29,7 @@ const Carousel = ({ data, component }) => {
         <CarouselRightnavigation />
 
         {data.map((item) => (
-          <SwiperSlide>{component(item)}</SwiperSlide>
+          <SwiperSlide >{component(item)}</SwiperSlide>
         ))}
       </Swiper>
     </div>

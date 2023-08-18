@@ -1,0 +1,20 @@
+.footer_top {
+
+    box-sizing: border-box;
+}
+
+.Faq {
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+
+.accordion {
+    margin: 0px 18%;
+}
+
+.heading {
+    /* width: 300px;   
+    height: 100px;  */
+    font-size: 50px;
+}

@@ -1,14 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Section.css";
 import Card from "../Card/Card";
 import Carousel from "../Carousel/Carousel";
+import BasicTabs from "../Tabs/Tabs";
 import { Box, CircularProgress } from "@mui/material";
-const Section = ({ title, data, type }) => {
+
+
+const Section = ({ title, data, type ,filteredData=null}) => {
   const [toggle, setToggle] = useState(false);
+  const [value, setValue] = React.useState(0);
+  const [songsData, setSongsData] = useState(data)
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  }
   const handleToggle = () => {
     console.log("change Text");
     setToggle(!toggle);
   };
+
+  const generateSongsData=(key)=>{
+    const res = data.filter((item)=>item.genre.key===key)
+    filteredData(res)
+  }
+  useEffect(() => {
+    if (value === 1) {
+      generateSongsData('rock')
+    }
+  }, [value])
   return (
     <div>
       <div className="header">
@@ -17,6 +36,7 @@ const Section = ({ title, data, type }) => {
           {!toggle ? "Show All" : "Collapse All"}
         </h4>
       </div>
+      {type == "song" ? <BasicTabs value={value} handleChange={handleChange} /> : null}
       {!data.length ? (
         <Box sx={{ display: "flex" }}>
           <CircularProgress />
